@@ -1,12 +1,11 @@
 # =====================
-# Java build files
+# Java build outputs
 # =====================
-*.class
-*.jar
 out/
+*.class
 
 # =====================
-# VS Code & IDE files
+# IDE files
 # =====================
 .vscode/
 .idea/
@@ -24,8 +23,6 @@ Thumbs.db
 *.log
 
 # =====================
-# JavaFX SDK unnecessary files
+# JavaFX SDK (ignore ALL)
 # =====================
-javafx/bin/
-javafx/legal/
-javafx/src.zip
+javafx/
