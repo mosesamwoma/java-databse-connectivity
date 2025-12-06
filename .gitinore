@@ -1,18 +1,30 @@
-# Ignore JavaFX SDK completely
-javafx/
+# Compiled Java classes
+/out/
+/bin/
 
-# Java output
-out/
+# Temporary files
 *.class
+*.log
+*.tmp
 
-# IDE
+# IDE specific files
 .vscode/
-.idea/
 *.iml
+.idea/
 
-# OS junk
+# OS specific files
 Thumbs.db
 .DS_Store
 
-# Logs
-*.log
+# JavaFX SDK unnecessary files
+javafx/javafx-sdk-25.0.1/bin/
+javafx/javafx-sdk-25.0.1/legal/
+javafx/javafx-sdk-25.0.1/src.zip
+
+# Build artifacts
+*.jar
+*.war
+*.ear
+
+# MySQL connector jar (optional: if you want users to download it themselves)
+libs/mysql-connector-j-*.jar
