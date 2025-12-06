@@ -1,0 +1,16 @@
+# Ignore JavaFX SDK completely
+javafx/
+
+# Ignore compiled output
+out/
+
+# Ignore OS/system files
+*.DS_Store
+Thumbs.db
+*.log
+
+# Keep your libraries like MySQL connector
+!lib/
+HostelApp/javafx/ 
+HostelApp/out/ 
+*.class 

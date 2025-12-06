@@ -1,25 +1,13 @@
-# Compiled Java classes
-/out/
-/bin/
+# Ignore JavaFX SDK
+HostelApp/javafx/
 
-# Temporary files
+# Ignore compiled class files
+HostelApp/out/
+
+# Ignore IDE/project files if any
 *.class
 *.log
-*.tmp
-
-# IDE specific files
-.vscode/
 *.iml
-.idea/
-
-# OS specific files
-Thumbs.db
+*.idea/
+*.vscode/
 .DS_Store
-
-# Hide the entire JavaFX SDK folder
-javafx/
-
-# Build artifacts
-*.jar
-*.war
-*.ear
