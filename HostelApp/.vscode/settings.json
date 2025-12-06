@@ -1,0 +1,13 @@
+{
+    "java.project.sourcePaths": ["src"],
+    "java.project.outputPath": "out",
+    "java.project.referencedLibraries": [
+        "libs/**/*.jar",
+        "HostelApp/javafx/javafx-sdk-25.0.1/lib/*.jar"
+    ],
+    "launch": {
+        "configurations": [],
+        "compounds": []
+    },
+    "java.debug.settings.onBuildFailureProceed": true
+}

@@ -1,0 +1,31 @@
+# =====================
+# Java build files
+# =====================
+*.class
+*.jar
+out/
+
+# =====================
+# VS Code & IDE files
+# =====================
+.vscode/
+.idea/
+*.iml
+
+# =====================
+# OS junk
+# =====================
+.DS_Store
+Thumbs.db
+
+# =====================
+# Logs
+# =====================
+*.log
+
+# =====================
+# JavaFX SDK unnecessary files
+# =====================
+javafx/bin/
+javafx/legal/
+javafx/src.zip

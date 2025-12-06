@@ -1,0 +1,18 @@
+{
+    "java.project.sourcePaths": [
+        "HostelApp\\src"
+    ],
+    "java.project.referencedLibraries": [
+        "HostelApp\\javafx\\javafx-sdk-25.0.1\\lib\\javafx.base.jar",
+        "HostelApp\\javafx\\javafx-sdk-25.0.1\\lib\\javafx.controls.jar",
+        "HostelApp\\javafx\\javafx-sdk-25.0.1\\lib\\javafx.fxml.jar",
+        "HostelApp\\javafx\\javafx-sdk-25.0.1\\lib\\javafx.graphics.jar",
+        "HostelApp\\javafx\\javafx-sdk-25.0.1\\lib\\javafx.media.jar",
+        "HostelApp\\javafx\\javafx-sdk-25.0.1\\lib\\javafx.swing.jar",
+        "HostelApp\\javafx\\javafx-sdk-25.0.1\\lib\\javafx.web.jar",
+        "HostelApp\\javafx\\javafx-sdk-25.0.1\\lib\\javafx-swt.jar",
+        "HostelApp\\javafx\\javafx-sdk-25.0.1\\lib\\jdk.jsobject.jar",
+        "HostelApp\\javafx\\javafx-sdk-25.0.1\\lib\\jfx.incubator.input.jar",
+        "HostelApp\\javafx\\javafx-sdk-25.0.1\\lib\\jfx.incubator.richtext.jar"
+    ]
+}

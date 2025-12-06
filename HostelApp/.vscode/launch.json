@@ -1,0 +1,28 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug JavaFX App",
+            "request": "launch",
+            "mainClass": "Main",
+            "vmArgs": "--module-path \"${workspaceFolder}/HostelApp/javafx/javafx-sdk-25.0.1/lib\" --add-modules javafx.controls,javafx.fxml,javafx.graphics,javafx.base,javafx.media,javafx.swing,javafx.web",
+            "classpath": [
+                "${workspaceFolder}/out",
+                "${workspaceFolder}/libs/mysql-connector-j-9.5.0.jar"
+            ],
+            "preLaunchTask": "Compile JavaFX Project"
+        },
+        {
+            "type": "java",
+            "name": "Run JavaFX App",
+            "request": "launch",
+            "mainClass": "Main",
+            "vmArgs": "--module-path \"${workspaceFolder}/HostelApp/javafx/javafx-sdk-25.0.1/lib\" --add-modules javafx.controls,javafx.fxml,javafx.graphics",
+            "classpath": [
+                "${workspaceFolder}/out",
+                "${workspaceFolder}/libs/mysql-connector-j-9.5.0.jar"
+            ]
+        }
+    ]
+}

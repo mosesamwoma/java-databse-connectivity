@@ -1,0 +1,30 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile JavaFX Project",
+            "type": "shell",
+            "command": "javac",
+            "args": [
+                "--module-path",
+                "${workspaceFolder}/HostelApp/javafx/javafx-sdk-25.0.1/lib",
+                "--add-modules",
+                "javafx.controls,javafx.fxml",
+                "-cp",
+                "${workspaceFolder}/libs/mysql-connector-j-9.5.0.jar",
+                "-d",
+                "${workspaceFolder}/out",
+                "${workspaceFolder}/src/*.java"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true  // ← THIS LINE IS CRITICAL
+            },
+            "problemMatcher": ["$javac"],
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            }
+        }
+    ]
+}
