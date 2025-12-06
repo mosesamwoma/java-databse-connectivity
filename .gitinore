@@ -1,28 +1,18 @@
-# =====================
-# Java build outputs
-# =====================
+# Ignore JavaFX SDK completely
+javafx/
+
+# Java output
 out/
 *.class
 
-# =====================
-# IDE files
-# =====================
+# IDE
 .vscode/
 .idea/
 *.iml
 
-# =====================
 # OS junk
-# =====================
-.DS_Store
 Thumbs.db
+.DS_Store
 
-# =====================
 # Logs
-# =====================
 *.log
-
-# =====================
-# JavaFX SDK (ignore ALL)
-# =====================
-javafx/
