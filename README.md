@@ -16,7 +16,6 @@ A beginner-friendly JavaFX application for managing hostel students. Users can *
 - ✅ Delete students from database
 - ✅ Display students in a TableView
 - ✅ Refresh table to reload data
-- ✅ Clean project structure with separate packages
 - ✅ Beginner-friendly code for learning JavaFX + MySQL integration
 
 ---
@@ -25,7 +24,7 @@ A beginner-friendly JavaFX application for managing hostel students. Users can *
 
 - **Java 21+** (JDK)
 - **JavaFX SDK 25+**
-- **MySQL Server 8.0+** (default port `3306`)
+- **MySQL Server 8.0+** (port can be any - make sure to copy from XAMPP server)
 - **MySQL Connector/J** (e.g., `mysql-connector-j-9.5.0.jar`)
 - **Windows Operating System**
 - Optional: **VS Code**, **IntelliJ IDEA**, or **Eclipse**
@@ -54,6 +53,8 @@ HostelApp/javafx/javafx-sdk-25.0.1/
 ### 3. Install MySQL
 
 Download and install [MySQL Community Server](https://dev.mysql.com/downloads/mysql/)
+
+Or use **XAMPP** which includes MySQL server. Make sure to note the port number from XAMPP (typically 3306, but can be different).
 
 ### 4. Download MySQL Connector
 
@@ -92,12 +93,14 @@ INSERT INTO students (name, phone, course) VALUES
 
 ### Configure Database Connection
 
-In `src/connector/DBConnector.java`, update the database credentials:
+In `src/connector/DBConnector.java`, update the database credentials and port:
 ```java
-String url = "jdbc:mysql://localhost:3306/hostel?useSSL=false&allowPublicKeyRetrieval=true";
+String url = "jdbc:mysql://localhost:PORT/hostel?useSSL=false&allowPublicKeyRetrieval=true";
 String user = "root";
 String pass = ""; // Replace with your MySQL password
 ```
+
+**Important:** Replace `PORT` with your actual MySQL port number from XAMPP server (usually 3306, but verify from XAMPP control panel).
 
 ---
 
@@ -117,7 +120,7 @@ java --module-path "javafx/javafx-sdk-25.0.1/lib" --add-modules javafx.controls,
 
 ## 💡 Usage
 
-1. **Start MySQL Server** - Ensure MySQL is running on port 3306
+1. **Start MySQL Server** - Ensure MySQL is running (check XAMPP control panel if using XAMPP)
 2. **Compile the Application** - Run the compile command above
 3. **Run the Application** - Execute the run command above
 4. **Add Students** - Fill in Name, Phone, and Course fields, then click "Add Student"
@@ -130,8 +133,8 @@ java --module-path "javafx/javafx-sdk-25.0.1/lib" --add-modules javafx.controls,
 ## 🐛 Troubleshooting
 
 ### Application won't start
-- Verify MySQL Server is running: `mysql -u root -p`
-- Check database credentials in `DBConnector.java`
+- Verify MySQL Server is running (check XAMPP control panel)
+- Check database credentials and port number in `DBConnector.java`
 - Ensure `hostel` database exists
 
 ### Compilation errors
@@ -141,19 +144,9 @@ java --module-path "javafx/javafx-sdk-25.0.1/lib" --add-modules javafx.controls,
 
 ### Database connection errors
 - Test MySQL connection: `mysql -u root -p`
-- Verify port 3306 is not blocked by firewall
+- Verify the port number matches your XAMPP MySQL port
 - Check MySQL user permissions
-
----
-
-## 📚 Learning Resources
-
-This project is designed for beginners learning:
-- JavaFX TableView, Buttons, and event handling
-- JDBC and database connectivity
-- Prepared statements to prevent SQL injection
-- Basic CRUD operations (Create, Read, Update, Delete)
-- Project structure with separate packages
+- Ensure port is not blocked by firewall
 
 ---
 
@@ -161,16 +154,10 @@ This project is designed for beginners learning:
 
 - [ ] Enhanced UI styling with CSS for modern look
 - [ ] Search/filter students by name, phone, or course
-- [ ] Input validation and error handling
-- [ ] Pagination for large datasets
 - [ ] Export data to CSV/PDF
 - [ ] Room allocation feature
-- [ ] Fee management system
-- [ ] Attendance tracking
 - [ ] Student photo upload
 - [ ] Email notifications
-- [ ] Backup and restore database
-- [ ] Multi-user authentication
 - [ ] Reports and analytics dashboard
 
 ---
