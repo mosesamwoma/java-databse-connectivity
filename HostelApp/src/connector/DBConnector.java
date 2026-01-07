@@ -3,20 +3,39 @@ package connector;
 import app.Main.Student;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
 import java.sql.*;
 
 public class DBConnector {
 
-    private static final String url = "jdbc:mysql://localhost:3306/hostel?useSSL=false&allowPublicKeyRetrieval=true";
-    private static final String user = "root";
-    private static final String pass = "";
+    private static final String URL = "jdbc:sqlite:hostel.db";
 
-    // Insert student
+    static {
+        // create table on startup if needed
+        try (Connection conn = DriverManager.getConnection(URL);
+                Statement stmt = conn.createStatement()) {
+
+            stmt.execute("""
+                        CREATE TABLE IF NOT EXISTS students (
+                            id INTEGER PRIMARY KEY AUTOINCREMENT,
+                            name TEXT,
+                            phone TEXT,
+                            course TEXT
+                        )
+                    """);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(URL);
+    }
+
     public static void insertStudent(String name, String phone, String course) throws SQLException {
-        try (Connection conn = DriverManager.getConnection(url, user, pass);
-                PreparedStatement ps = conn
-                        .prepareStatement("INSERT INTO students(name, phone, course) VALUES (?, ?, ?)")) {
+        String sql = "INSERT INTO students(name, phone, course) VALUES (?, ?, ?)";
+        try (Connection conn = getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, name);
             ps.setString(2, phone);
             ps.setString(3, course);
@@ -24,36 +43,37 @@ public class DBConnector {
         }
     }
 
-    // Delete student by ID
     public static boolean deleteStudent(int id) throws SQLException {
-        try (Connection conn = DriverManager.getConnection(url, user, pass);
-                PreparedStatement ps = conn.prepareStatement("DELETE FROM students WHERE id=?")) {
+        String sql = "DELETE FROM students WHERE id = ?";
+        try (Connection conn = getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, id);
-            int rows = ps.executeUpdate();
-            return rows > 0;
+            return ps.executeUpdate() > 0;
         }
     }
 
-    // Update student by ID
     public static boolean updateStudent(int id, String name, String phone, String course) throws SQLException {
-        try (Connection conn = DriverManager.getConnection(url, user, pass);
-                PreparedStatement ps = conn
-                        .prepareStatement("UPDATE students SET name=?, phone=?, course=? WHERE id=?")) {
+        String sql = """
+                    UPDATE students
+                    SET name = ?, phone = ?, course = ?
+                    WHERE id = ?
+                """;
+        try (Connection conn = getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, name);
             ps.setString(2, phone);
             ps.setString(3, course);
             ps.setInt(4, id);
-            int rows = ps.executeUpdate();
-            return rows > 0;
+            return ps.executeUpdate() > 0;
         }
     }
 
-    // Get all students
     public static ObservableList<Student> getAllStudents() throws SQLException {
         ObservableList<Student> list = FXCollections.observableArrayList();
-        try (Connection conn = DriverManager.getConnection(url, user, pass);
+        String sql = "SELECT * FROM students";
+        try (Connection conn = getConnection();
                 Statement stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT * FROM students")) {
+                ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
                 list.add(new Student(
                         rs.getInt("id"),
