@@ -7,31 +7,15 @@ import java.sql.*;
 
 public class DBConnector {
 
+    // Path to your manually created database
     private static final String URL = "jdbc:sqlite:hostel.db";
 
-    static {
-        // create table on startup if needed
-        try (Connection conn = DriverManager.getConnection(URL);
-                Statement stmt = conn.createStatement()) {
-
-            stmt.execute("""
-                        CREATE TABLE IF NOT EXISTS students (
-                            id INTEGER PRIMARY KEY AUTOINCREMENT,
-                            name TEXT,
-                            phone TEXT,
-                            course TEXT
-                        )
-                    """);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
+    // Get connection to the database
     private static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL);
     }
 
+    // Insert a new student
     public static void insertStudent(String name, String phone, String course) throws SQLException {
         String sql = "INSERT INTO students(name, phone, course) VALUES (?, ?, ?)";
         try (Connection conn = getConnection();
@@ -43,6 +27,7 @@ public class DBConnector {
         }
     }
 
+    // Delete a student by ID
     public static boolean deleteStudent(int id) throws SQLException {
         String sql = "DELETE FROM students WHERE id = ?";
         try (Connection conn = getConnection();
@@ -52,6 +37,7 @@ public class DBConnector {
         }
     }
 
+    // Update a student by ID
     public static boolean updateStudent(int id, String name, String phone, String course) throws SQLException {
         String sql = """
                     UPDATE students
@@ -68,6 +54,7 @@ public class DBConnector {
         }
     }
 
+    // Get all students
     public static ObservableList<Student> getAllStudents() throws SQLException {
         ObservableList<Student> list = FXCollections.observableArrayList();
         String sql = "SELECT * FROM students";
