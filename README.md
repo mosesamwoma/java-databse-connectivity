@@ -57,33 +57,41 @@ Download [SQLite JDBC](https://github.com/xerial/sqlite-jdbc/releases) and place
 HostelApp/lib/sqlite-jdbc-3.51.1.0.jar
 ```
 
-### 4️⃣ Create SQLite Database
+### 4️⃣ Navigate to Project Directory
 
-Open **PowerShell** in your project folder:
-
-```powershell
-cd "C:\Path\To\Your\HostelApp"
-```
-
-Create the database and table:
+Open **PowerShell** and navigate to your project folder:
 
 ```powershell
-sqlite3 hostel.db
+cd HostelApp
 ```
 
-Inside SQLite shell:
+### 5️⃣ Setup Database
+
+Create the sample database with the students table:
+
+```powershell
+sqlite3 hostel_sample.db
+```
+
+Inside SQLite shell, create the table:
 
 ```sql
 CREATE TABLE students (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL,
-    phone TEXT NOT NULL,
-    course TEXT NOT NULL
+    name TEXT,
+    phone TEXT,
+    course TEXT
 );
 .exit
 ```
 
-**Alternative**: Use [DB Browser for SQLite](https://sqlitebrowser.org/) GUI to create the database visually.
+Copy the sample database to create your working database:
+
+```powershell
+cp hostel_sample.db hostel.db
+```
+
+**Note**: `hostel_sample.db` contains the pre-configured `students` table structure. This step creates your working database file.
 
 ---
 
@@ -91,7 +99,7 @@ CREATE TABLE students (
 
 ### Compile
 
-Open **PowerShell** in project root:
+In **PowerShell** (inside `HostelApp` directory):
 
 ```powershell
 javac --module-path "javafx\javafx-sdk-25.0.1\lib" --add-modules javafx.controls,javafx.fxml -cp "lib\sqlite-jdbc-3.51.1.0.jar" -d out (Get-ChildItem -Recurse -Filter *.java).FullName
@@ -133,7 +141,9 @@ private static final String URL = "jdbc:sqlite:hostel.db";
 
 ### Database Errors
 
-✅ Ensure `hostel.db` exists in project root  
+✅ Ensure you created `hostel_sample.db` with the students table  
+✅ Verify you ran `cp hostel_sample.db hostel.db`  
+✅ Check `hostel.db` exists in project root  
 ✅ Verify table exists:
 
 ```powershell
@@ -161,24 +171,6 @@ java -version
 
 ---
 
-## 📚 Code Overview
-
-### Main.java
-- JavaFX UI with TextFields and TableView
-- CRUD operation buttons
-- Auto-refresh after database operations
-
-### DBConnector.java
-- Singleton pattern for database connection
-- Connection pooling to SQLite database
-- Error handling for failed connections
-
-### Student.java
-- Model class with properties: id, name, phone, course
-- JavaFX properties for TableView binding
-
----
-
 ## 🔮 Future Enhancements
 
 - [ ] 🎨 Enhanced UI styling with CSS
@@ -202,18 +194,6 @@ This project is licensed under the **MIT License** - free to use and modify.
 
 **Moses Tumbo**  
 Beginner-friendly JavaFX + SQLite demonstration project
-
----
-
-## ⭐ Quick Start Checklist
-
-- [ ] Install Java 21+
-- [ ] Download and extract JavaFX SDK
-- [ ] Download SQLite JDBC JAR
-- [ ] Create `hostel.db` with `students` table
-- [ ] Compile project
-- [ ] Run application
-- [ ] Start managing students!
 
 ---
 
