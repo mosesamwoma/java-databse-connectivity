@@ -70,7 +70,7 @@ cd HostelApp
 Create the sample database with the students table:
 
 ```powershell
-sqlite3 hostel_sample.db
+sqlite3 hostel.db
 ```
 
 Inside SQLite shell, create the table:
