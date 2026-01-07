@@ -20,33 +20,6 @@ A beginner-friendly JavaFX application for managing hostel students with full CR
 
 ---
 
-## 🗂️ Project Structure
-
-```
-HostelApp/
-│
-├── src/
-│   ├── app/
-│   │   └── Main.java              # Main application entry point
-│   ├── connector/
-│   │   └── DBConnector.java       # Database connection handler
-│   └── model/
-│       └── Student.java           # Student model class
-│
-├── lib/
-│   └── sqlite-jdbc-3.51.1.0.jar   # SQLite JDBC driver
-│
-├── javafx/
-│   └── javafx-sdk-25.0.1/         # JavaFX SDK
-│       └── lib/
-│
-├── out/                            # Compiled classes (auto-generated)
-├── hostel.db                       # SQLite database file
-└── README.md                       # Project documentation
-```
-
----
-
 ## 🛠️ Requirements
 
 - **Java 21+** (JDK)
