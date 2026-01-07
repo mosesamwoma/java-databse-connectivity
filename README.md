@@ -1,9 +1,9 @@
-# Hostel Management System
+# Hostel Management System (SQLite Version)
 
-A beginner-friendly JavaFX application for managing hostel students. Users can **add**, **update**, **delete**, and **view** students, with all data stored in a MySQL database. This project demonstrates how to connect a JavaFX GUI with a database using JDBC.
+A beginner-friendly JavaFX application for managing hostel students with full CRUD operations. All data is stored in a **SQLite database** with JDBC integration.
 
 ![JavaFX](https://img.shields.io/badge/JavaFX-25+-blue)
-![MySQL](https://img.shields.io/badge/MySQL-8.0+-orange)
+![SQLite](https://img.shields.io/badge/SQLite-3.5+-orange)
 ![Java](https://img.shields.io/badge/Java-21+-red)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
@@ -11,12 +11,39 @@ A beginner-friendly JavaFX application for managing hostel students. Users can *
 
 ## 📋 Features
 
-- ✅ Add new students (Name, Phone, Course)
-- ✅ Update existing student details
-- ✅ Delete students from database
-- ✅ Display students in a TableView
-- ✅ Refresh table to reload data
-- ✅ Beginner-friendly code for learning JavaFX + MySQL integration
+- ✅ **Add** new students (Name, Phone, Course)
+- ✅ **Update** existing student details
+- ✅ **Delete** students from database
+- ✅ **Display** students in a TableView
+- ✅ **Auto-refresh** table after operations
+- ✅ Beginner-friendly code structure
+
+---
+
+## 🗂️ Project Structure
+
+```
+HostelApp/
+│
+├── src/
+│   ├── app/
+│   │   └── Main.java              # Main application entry point
+│   ├── connector/
+│   │   └── DBConnector.java       # Database connection handler
+│   └── model/
+│       └── Student.java           # Student model class
+│
+├── lib/
+│   └── sqlite-jdbc-3.51.1.0.jar   # SQLite JDBC driver
+│
+├── javafx/
+│   └── javafx-sdk-25.0.1/         # JavaFX SDK
+│       └── lib/
+│
+├── out/                            # Compiled classes (auto-generated)
+├── hostel.db                       # SQLite database file
+└── README.md                       # Project documentation
+```
 
 ---
 
@@ -24,143 +51,197 @@ A beginner-friendly JavaFX application for managing hostel students. Users can *
 
 - **Java 21+** (JDK)
 - **JavaFX SDK 25+**
-- **MySQL Server 8.0+** (port can be any - make sure to copy from XAMPP server)
-- **MySQL Connector/J** (e.g., `mysql-connector-j-9.5.0.jar`)
-- **Windows Operating System**
-- Optional: **VS Code**, **IntelliJ IDEA**, or **Eclipse**
+- **SQLite JDBC Driver** (`sqlite-jdbc-3.51.1.0.jar`)
+- **Windows OS** (PowerShell commands provided)
+- **IDE** (Optional): VS Code, IntelliJ IDEA, or Eclipse
 
 ---
 
 ## 📦 Installation & Setup
 
-### 1. Install Java
+### 1️⃣ Install Java
 
-Download and install [Java JDK 21+](https://www.oracle.com/java/technologies/downloads/)
+Download [Java JDK 21+](https://www.oracle.com/java/technologies/downloads/) and verify:
 
-Verify installation:
 ```cmd
 java -version
 javac -version
 ```
 
-### 2. Download JavaFX SDK
+### 2️⃣ Download JavaFX SDK
 
-Download [JavaFX SDK 25+](https://gluonhq.com/products/javafx/) and extract it to the project directory:
+Download [JavaFX SDK 25+](https://gluonhq.com/products/javafx/) and extract to:
+
 ```
 HostelApp/javafx/javafx-sdk-25.0.1/
 ```
 
-### 3. Install MySQL
+### 3️⃣ Download SQLite JDBC Driver
 
-Download and install [MySQL Community Server](https://dev.mysql.com/downloads/mysql/)
+Download [SQLite JDBC](https://github.com/xerial/sqlite-jdbc/releases) and place in:
 
-Or use **XAMPP** which includes MySQL server. Make sure to note the port number from XAMPP (typically 3306, but can be different).
-
-### 4. Download MySQL Connector
-
-Download [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/) and place the JAR file in the `lib/` folder:
 ```
-HostelApp/lib/mysql-connector-j-9.5.0.jar
+HostelApp/lib/sqlite-jdbc-3.51.1.0.jar
 ```
 
----
+### 4️⃣ Create SQLite Database
 
-## 🗄️ Database Setup
+Open **PowerShell** in your project folder:
 
-Open MySQL Workbench or MySQL command line and run:
+```powershell
+cd "C:\Path\To\Your\HostelApp"
+```
+
+Create the database and table:
+
+```powershell
+sqlite3 hostel.db
+```
+
+Inside SQLite shell:
+
 ```sql
-DROP DATABASE IF EXISTS hostel;
-CREATE DATABASE hostel;
-USE hostel;
-
 CREATE TABLE students (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(50),
-    phone VARCHAR(20),
-    course VARCHAR(50)
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    phone TEXT NOT NULL,
+    course TEXT NOT NULL
 );
-
--- Sample data (optional)
-INSERT INTO students (name, phone, course) VALUES
-('Alice', '123456789', 'Computer Science'),
-('Bob', '987654321', 'Engineering'),
-('Carol', '555666777', 'Mathematics'),
-('David', '444555666', 'Physics'),
-('Eve', '111222333', 'Chemistry'),
-('Frank', '999888777', 'Biology'),
-('Grace', '222333444', 'Economics');
+.exit
 ```
 
-### Configure Database Connection
-
-In `src/connector/DBConnector.java`, update the database credentials and port:
-```java
-String url = "jdbc:mysql://localhost:PORT/hostel?useSSL=false&allowPublicKeyRetrieval=true";
-String user = "root";
-String pass = ""; // Replace with your MySQL password
-```
-
-**Important:** Replace `PORT` with your actual MySQL port number from XAMPP server (usually 3306, but verify from XAMPP control panel).
+**Alternative**: Use [DB Browser for SQLite](https://sqlitebrowser.org/) GUI to create the database visually.
 
 ---
 
-## 🚀 How to Compile and Run
+## 🚀 Compile & Run
 
 ### Compile
-```cmd
-javac --module-path "javafx/javafx-sdk-25.0.1/lib" --add-modules javafx.controls,javafx.fxml -cp "lib/mysql-connector-j-9.5.0.jar" -d out src\connector\DBConnector.java src\app\Main.java
+
+Open **PowerShell** in project root:
+
+```powershell
+javac --module-path "javafx\javafx-sdk-25.0.1\lib" --add-modules javafx.controls,javafx.fxml -cp "lib\sqlite-jdbc-3.51.1.0.jar" -d out (Get-ChildItem -Recurse -Filter *.java).FullName
 ```
 
 ### Run
-```cmd
-java --module-path "javafx/javafx-sdk-25.0.1/lib" --add-modules javafx.controls,javafx.fxml,javafx.graphics -cp "out;lib/mysql-connector-j-9.5.0.jar" app.Main
+
+```powershell
+java --module-path "javafx\javafx-sdk-25.0.1\lib" --add-modules javafx.controls,javafx.fxml,javafx.graphics -cp "out;lib\sqlite-jdbc-3.51.1.0.jar" app.Main
 ```
 
 ---
 
-## 💡 Usage
+## 💡 Usage Guide
 
-1. **Start MySQL Server** - Ensure MySQL is running (check XAMPP control panel if using XAMPP)
-2. **Compile the Application** - Run the compile command above
-3. **Run the Application** - Execute the run command above
-4. **Add Students** - Fill in Name, Phone, and Course fields, then click "Add Student"
-5. **Update Students** - Select a student from the table, modify the fields, and click "Update Selected"
-6. **Delete Students** - Select a student from the table and click "Delete Selected"
-7. **Refresh Table** - Click "Refresh" to reload data from the database
+1. **Launch Application** - Run the command above
+2. **Add Student** - Fill Name, Phone, Course fields → Click **"Insert"**
+3. **Update Student** - Enter Student ID + new details → Click **"Update"**
+4. **Delete Student** - Enter Student ID → Click **"Delete"**
+5. **View Students** - TableView displays all students automatically
+
+---
+
+## 🔧 Database Configuration
+
+The database connection is configured in `src/connector/DBConnector.java`:
+
+```java
+private static final String URL = "jdbc:sqlite:hostel.db";
+```
+
+- **No username/password required** for SQLite
+- Database file: `hostel.db` (in project root)
+- Automatically connects when app runs
 
 ---
 
 ## 🐛 Troubleshooting
 
-### Application won't start
-- Verify MySQL Server is running (check XAMPP control panel)
-- Check database credentials and port number in `DBConnector.java`
-- Ensure `hostel` database exists
+### Database Errors
 
-### Compilation errors
-- Verify JavaFX SDK path is correct
-- Check Java version: `java -version` (should be 21+)
-- Ensure all JAR files are in the correct locations
+✅ Ensure `hostel.db` exists in project root  
+✅ Verify table exists:
 
-### Database connection errors
-- Test MySQL connection: `mysql -u root -p`
-- Verify the port number matches your XAMPP MySQL port
-- Check MySQL user permissions
-- Ensure port is not blocked by firewall
+```powershell
+sqlite3 hostel.db
+sqlite> .tables
+students
+sqlite> .exit
+```
+
+### Compilation Errors
+
+✅ Check JavaFX SDK path is correct  
+✅ Verify SQLite JDBC JAR is in `lib/` folder  
+✅ Confirm Java version:
+
+```cmd
+java -version
+```
+
+### Runtime Errors
+
+✅ Ensure `out/` directory exists  
+✅ Check all `.java` files are in correct packages  
+✅ Verify module path points to JavaFX `lib` folder
 
 ---
 
-## 🔮 Future Improvements
+## 📚 Code Overview
 
-- [ ] Enhanced UI styling with CSS for modern look
-- [ ] Search/filter students by name, phone, or course
-- [ ] Export data to CSV/PDF
-- [ ] Room allocation feature
-- [ ] Student photo upload
-- [ ] Email notifications
-- [ ] Reports and analytics dashboard
+### Main.java
+- JavaFX UI with TextFields and TableView
+- CRUD operation buttons
+- Auto-refresh after database operations
+
+### DBConnector.java
+- Singleton pattern for database connection
+- Connection pooling to SQLite database
+- Error handling for failed connections
+
+### Student.java
+- Model class with properties: id, name, phone, course
+- JavaFX properties for TableView binding
 
 ---
-**⭐ If you find this project helpful, please give it a star!**
 
-**Happy Coding! 🚀**
+## 🔮 Future Enhancements
+
+- [ ] 🎨 Enhanced UI styling with CSS
+- [ ] 🔍 Search/filter students by name or course
+- [ ] 📄 Export data to CSV/PDF
+- [ ] 🏠 Room allocation management
+- [ ] 📷 Student photo upload
+- [ ] 📧 Email notifications
+- [ ] 📊 Reports and analytics dashboard
+- [ ] 🔐 User authentication system
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** - free to use and modify.
+
+---
+
+## 👨‍💻 Author
+
+**Moses Tumbo**  
+Beginner-friendly JavaFX + SQLite demonstration project
+
+---
+
+## ⭐ Quick Start Checklist
+
+- [ ] Install Java 21+
+- [ ] Download and extract JavaFX SDK
+- [ ] Download SQLite JDBC JAR
+- [ ] Create `hostel.db` with `students` table
+- [ ] Compile project
+- [ ] Run application
+- [ ] Start managing students!
+
+---
+
+**Ready to run!** Clone this project, follow the setup steps, and start managing hostel students in minutes. Perfect for learning JavaFX with database integration.
