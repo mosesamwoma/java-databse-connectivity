@@ -88,10 +88,10 @@ CREATE TABLE students (
 Copy the sample database to create your working database:
 
 ```powershell
-cp hostel_sample.db hostel.db
+cp hostel.db
 ```
 
-**Note**: `hostel_sample.db` contains the pre-configured `students` table structure. This step creates your working database file.
+**Note**: `hostel.db` contains the pre-configured `students` table structure. This step creates your working database file.
 
 ---
 
