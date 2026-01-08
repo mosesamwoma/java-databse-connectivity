@@ -7,15 +7,13 @@ import java.sql.*;
 
 public class DBConnector {
 
-    // Path to your manually created database
+    // Use relative path
     private static final String URL = "jdbc:sqlite:hostel.db";
 
-    // Get connection to the database
     private static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL);
     }
 
-    // Insert a new student
     public static void insertStudent(String name, String phone, String course) throws SQLException {
         String sql = "INSERT INTO students(name, phone, course) VALUES (?, ?, ?)";
         try (Connection conn = getConnection();
@@ -27,7 +25,6 @@ public class DBConnector {
         }
     }
 
-    // Delete a student by ID
     public static boolean deleteStudent(int id) throws SQLException {
         String sql = "DELETE FROM students WHERE id = ?";
         try (Connection conn = getConnection();
@@ -37,13 +34,8 @@ public class DBConnector {
         }
     }
 
-    // Update a student by ID
     public static boolean updateStudent(int id, String name, String phone, String course) throws SQLException {
-        String sql = """
-                    UPDATE students
-                    SET name = ?, phone = ?, course = ?
-                    WHERE id = ?
-                """;
+        String sql = "UPDATE students SET name = ?, phone = ?, course = ? WHERE id = ?";
         try (Connection conn = getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, name);
@@ -54,7 +46,6 @@ public class DBConnector {
         }
     }
 
-    // Get all students
     public static ObservableList<Student> getAllStudents() throws SQLException {
         ObservableList<Student> list = FXCollections.observableArrayList();
         String sql = "SELECT * FROM students";
