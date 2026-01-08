@@ -23,6 +23,7 @@ A beginner-friendly JavaFX application for managing hostel students with full CR
 
 - **Java 21+** (JDK)
 - **JavaFX SDK 25+**
+- **SQLite Command-Line Tool**
 - **SQLite JDBC Driver** (`sqlite-jdbc-3.51.1.0.jar`)
 - **Windows OS** (PowerShell commands provided)
 - **IDE** (Optional): VS Code, IntelliJ IDEA, or Eclipse
@@ -40,7 +41,26 @@ java -version
 javac -version
 ```
 
-### 2️⃣ Download JavaFX SDK
+### 2️⃣ Install SQLite Command-Line Tool
+
+1. Download from [SQLite Download Page](https://www.sqlite.org/download.html)
+   - Get **sqlite-tools-win-x64-xxxxxxx.zip** (under "Precompiled Binaries for Windows")
+
+2. Extract to `C:\sqlite\`
+
+3. Add to System PATH:
+   - Press `Win + X` → **System** → **Advanced system settings** → **Environment Variables**
+   - Edit `Path` → Click **New** → Add `C:\sqlite`
+   - Click **OK** and restart PowerShell
+
+4. Verify installation:
+   ```powershell
+   sqlite3 --version
+   ```
+
+**Alternative:** Copy `sqlite3.exe` to your `HostelApp` folder and use `.\sqlite3.exe` instead.
+
+### 3️⃣ Download JavaFX SDK
 
 Download [JavaFX SDK 25+](https://gluonhq.com/products/javafx/) and extract to:
 
@@ -48,7 +68,7 @@ Download [JavaFX SDK 25+](https://gluonhq.com/products/javafx/) and extract to:
 HostelApp/javafx/javafx-sdk-25.0.1/
 ```
 
-### 3️⃣ Download SQLite JDBC Driver
+### 4️⃣ Download SQLite JDBC Driver
 
 Download [SQLite JDBC](https://github.com/xerial/sqlite-jdbc/releases) and place in:
 
@@ -56,7 +76,7 @@ Download [SQLite JDBC](https://github.com/xerial/sqlite-jdbc/releases) and place
 HostelApp/lib/sqlite-jdbc-3.51.1.0.jar
 ```
 
-### 4️⃣ Navigate to Project Directory
+### 5️⃣ Navigate to Project Directory
 
 Open **PowerShell** and navigate to your project folder:
 
@@ -64,9 +84,9 @@ Open **PowerShell** and navigate to your project folder:
 cd HostelApp
 ```
 
-### 5️⃣ Setup Database
+### 6️⃣ Setup Database
 
-Create the sample database with the students table:
+Create the database with the students table:
 
 ```powershell
 sqlite3 hostel.db
@@ -84,13 +104,7 @@ CREATE TABLE students (
 .exit
 ```
 
-Copy the sample database to create your working database:
-
-```powershell
-cp hostel.db
-```
-
-**Note**: `hostel.db` contains the pre-configured `students` table structure. This step creates your working database file.
+**Note**: `hostel.db` contains the pre-configured `students` table structure and will be created in your project root.
 
 ---
 
@@ -140,8 +154,7 @@ private static final String URL = "jdbc:sqlite:hostel.db";
 
 ### Database Errors
 
-✅ Ensure you created `hostel_sample.db` with the students table  
-✅ Verify you ran `cp hostel_sample.db hostel.db`  
+✅ Ensure you created `hostel.db` with the students table  
 ✅ Check `hostel.db` exists in project root  
 ✅ Verify table exists:
 
@@ -180,12 +193,6 @@ java -version
 - [ ] 📧 Email notifications
 - [ ] 📊 Reports and analytics dashboard
 - [ ] 🔐 User authentication system
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License** - free to use and modify.
 
 ---
 
