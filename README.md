@@ -15,7 +15,6 @@ A beginner-friendly JavaFX application for managing hostel students with full CR
 - ✅ **Update** existing student details
 - ✅ **Delete** students from database
 - ✅ **Display** students in a TableView
-- ✅ **Auto-refresh** table after operations
 - ✅ Beginner-friendly code structure
 
 ---
