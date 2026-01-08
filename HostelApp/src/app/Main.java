@@ -24,6 +24,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) {
+
         nameField.setPromptText("Name");
         phoneField.setPromptText("Phone");
         courseField.setPromptText("Course");
@@ -67,7 +68,7 @@ public class Main extends Application {
             }
         });
 
-        // TableView setup
+        // Table columns
         TableColumn<Student, Integer> idCol = new TableColumn<>("ID");
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         TableColumn<Student, String> nameCol = new TableColumn<>("Name");
@@ -89,7 +90,6 @@ public class Main extends Application {
         loadStudents();
     }
 
-    // Load students from DB into table
     void loadStudents() {
         try {
             ObservableList<Student> students = DBConnector.getAllStudents();
@@ -105,7 +105,7 @@ public class Main extends Application {
         alert.showAndWait();
     }
 
-    // Inner class for table
+    // Table model
     public static class Student {
         private int id;
         private String name;
