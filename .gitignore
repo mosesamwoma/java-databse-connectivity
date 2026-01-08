@@ -1,16 +1,31 @@
-# Ignore JavaFX SDK completely
+# Compiled class files
+out/
+*.class
+
+# Temporary / log files
+*.log
+*.tmp
+
+# SQLite database (ignore real database)
+hostel.db
+
+# JavaFX SDK
 javafx/
 
-# Ignore compiled output
-out/
+# IDE files
+.vscode/
+*.iml
+*.idea/
+*.ipr
+*.iws
 
-# Ignore OS/system files
-*.DS_Store
+# OS / system files
+.DS_Store
 Thumbs.db
-*.log
 
-# Keep your libraries like MySQL connector
+# Libraries (keep lib folder)
 !lib/
-HostelApp/javafx/ 
-HostelApp/out/ 
-*.class 
+
+# Optional project folders
+HostelApp/javafx/
+HostelApp/out/
