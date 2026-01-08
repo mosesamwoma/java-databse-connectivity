@@ -84,7 +84,9 @@ Open **PowerShell** and navigate to your project folder:
 cd HostelApp
 ```
 
-### 5️⃣ Setup Database
+### 6️⃣ Setup Database
+
+**IMPORTANT:** The database file **must be created inside the `HostelApp` folder** for the application to work correctly.
 
 Create the database with the students table:
 
@@ -108,13 +110,10 @@ CREATE TABLE students (
 .exit
 ```
 
-Copy the sample database to create your working database:
-
-```powershell
-cp hostel.db
-```
-
-**Note**: `hostel.db` contains the pre-configured `students` table structure. This step creates your working database file.
+**Important Notes:**
+- The `hostel.db` file **must be located in the `HostelApp` folder** (project root)
+- This is where the application expects to find the database
+- If you create it elsewhere, the application will not connect properly
 
 ---
 
@@ -166,10 +165,9 @@ private static final String URL = "jdbc:sqlite:hostel.db";
 
 ### Database Errors
 
-✅ Ensure you created `hostel_sample.db` with the students table  
-✅ Verify you ran `cp hostel_sample.db hostel.db`  
-✅ Check `hostel.db` exists in project root  
-✅ Verify table exists:
+✅ **Ensure `hostel.db` is in the `HostelApp` folder** (most common issue)  
+✅ Verify you created the database with the students table  
+✅ Check table exists:
 
 ```powershell
 # Navigate to HostelApp folder first
@@ -216,5 +214,9 @@ java -version
 
 ## 👨‍💻 Author
 
-**Moses AMWOMA**  
+**Moses Tumbo**  
 Beginner-friendly JavaFX + SQLite demonstration project
+
+---
+
+**Ready to run!** Clone this project, follow the setup steps, and start managing hostel students in minutes. Perfect for learning JavaFX with database integration.
