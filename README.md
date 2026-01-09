@@ -209,6 +209,7 @@ java -version
 - [ ] 📧 Email notifications
 - [ ] 📊 Reports and analytics dashboard
 - [ ] 🔐 User authentication system
+- [ ] *connect to postgress
 
 ---
 
