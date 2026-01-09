@@ -15,7 +15,6 @@ public class Main extends Application {
     TextField phoneField = new TextField();
     TextField courseField = new TextField();
     TextField idField = new TextField();
-
     TableView<Student> table = new TableView<>();
 
     public static void main(String[] args) {
@@ -30,7 +29,6 @@ public class Main extends Application {
         courseField.setPromptText("Course");
         idField.setPromptText("ID (for update/delete)");
 
-        // Buttons
         Button insertBtn = new Button("Insert");
         insertBtn.setOnAction(e -> {
             try {
@@ -68,25 +66,26 @@ public class Main extends Application {
             }
         });
 
-        // Table columns
         TableColumn<Student, Integer> idCol = new TableColumn<>("ID");
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+
         TableColumn<Student, String> nameCol = new TableColumn<>("Name");
         nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+
         TableColumn<Student, String> phoneCol = new TableColumn<>("Phone");
         phoneCol.setCellValueFactory(new PropertyValueFactory<>("phone"));
+
         TableColumn<Student, String> courseCol = new TableColumn<>("Course");
         courseCol.setCellValueFactory(new PropertyValueFactory<>("course"));
 
         table.getColumns().addAll(idCol, nameCol, phoneCol, courseCol);
 
-        // Layout
         VBox root = new VBox(10, nameField, phoneField, courseField, idField, insertBtn, deleteBtn, updateBtn, table);
+
         stage.setScene(new Scene(root, 600, 400));
         stage.setTitle("HostelApp - CRUD Viewer");
         stage.show();
 
-        // Load initial data
         loadStudents();
     }
 
@@ -105,7 +104,6 @@ public class Main extends Application {
         alert.showAndWait();
     }
 
-    // Table model
     public static class Student {
         private int id;
         private String name;
