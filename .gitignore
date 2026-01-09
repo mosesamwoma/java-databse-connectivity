@@ -29,3 +29,5 @@ Thumbs.db
 # Optional project folders
 HostelApp/javafx/
 HostelApp/out/
+HostelApp/.vscode/
+HostelApp/.idea/
