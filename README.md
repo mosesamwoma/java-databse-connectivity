@@ -2,10 +2,7 @@
 
 A beginner-friendly JavaFX application for managing hostel students with full CRUD operations. All data is stored in a **SQLite database** with JDBC integration.
 
-![JavaFX](https://img.shields.io/badge/JavaFX-25+-blue)
-![SQLite](https://img.shields.io/badge/SQLite-3.5+-orange)
-![Java](https://img.shields.io/badge/Java-21+-red)
-![License](https://img.shields.io/badge/License-MIT-green)
+![JavaFX](https://img.shields.io/badge/JavaFX-25+-blue) ![SQLite](https://img.shields.io/badge/SQLite-3.5+-orange) ![Java](https://img.shields.io/badge/Java-21+-red) ![License](https://img.shields.io/badge/License-MIT-green)
 
 ---
 
@@ -45,18 +42,16 @@ javac -version
 
 1. Download from [SQLite Download Page](https://www.sqlite.org/download.html)
    - Get **sqlite-tools-win-x64-xxxxxxx.zip** (under "Precompiled Binaries for Windows")
-
 2. Extract to `C:\sqlite\`
-
 3. Add to System PATH:
    - Press `Win + X` → **System** → **Advanced system settings** → **Environment Variables**
    - Edit `Path` → Click **New** → Add `C:\sqlite`
    - Click **OK** and restart PowerShell
-
 4. Verify installation:
-   ```powershell
-   sqlite3 --version
-   ```
+
+```powershell
+sqlite3 --version
+```
 
 **Alternative:** Copy `sqlite3.exe` to your `HostelApp` folder and use `.\sqlite3.exe` instead.
 
@@ -137,11 +132,20 @@ java --module-path "javafx\javafx-sdk-25.0.1\lib" --add-modules javafx.controls,
 
 ## 💡 Usage Guide
 
-1. **Launch Application** - Run the command above
-2. **Add Student** - Fill Name, Phone, Course fields → Click **"Insert"**
-3. **Update Student** - Enter Student ID + new details → Click **"Update"**
-4. **Delete Student** - Enter Student ID → Click **"Delete"**
-5. **View Students** - TableView displays all students automatically
+1. **Launch Application**
+   - Run the command above
+
+2. **Add Student**
+   - Fill Name, Phone, Course fields → Click **"Insert"**
+
+3. **Update Student**
+   - Enter Student ID + new details → Click **"Update"**
+
+4. **Delete Student**
+   - Enter Student ID → Click **"Delete"**
+
+5. **View Students**
+   - TableView displays all students automatically
 
 ---
 
@@ -201,6 +205,7 @@ java -version
 
 ## 🔮 Future Enhancements
 
+- [ ] 🗄️ **PostgreSQL database integration** (migration from SQLite for production use)
 - [ ] 🎨 Enhanced UI styling with CSS
 - [ ] 🔍 Search/filter students by name or course
 - [ ] 📄 Export data to CSV/PDF
@@ -209,13 +214,13 @@ java -version
 - [ ] 📧 Email notifications
 - [ ] 📊 Reports and analytics dashboard
 - [ ] 🔐 User authentication system
-- [ ] *connect to postgress
 
 ---
 
 ## 👨‍💻 Author
 
-**Moses Tumbo**  
+**Moses Tumbo**
+
 Beginner-friendly JavaFX + SQLite demonstration project
 
 ---
