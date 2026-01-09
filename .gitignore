@@ -21,7 +21,8 @@ javafx/
 
 # OS / system files
 .DS_Store
-Thumbs.db
+Thumbs.
+db
 
 # Libraries (keep lib folder)
 !lib/
