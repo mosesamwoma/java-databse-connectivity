@@ -1,13 +1,12 @@
 package connector;
 
-import app.Main.Student;
+import app.Main; // Import Main class
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import java.sql.*;
 
 public class DBConnector {
 
-    // Use relative path
     private static final String URL = "jdbc:sqlite:hostel.db";
 
     private static Connection getConnection() throws SQLException {
@@ -46,14 +45,15 @@ public class DBConnector {
         }
     }
 
-    public static ObservableList<Student> getAllStudents() throws SQLException {
-        ObservableList<Student> list = FXCollections.observableArrayList();
+    public static ObservableList<Main.Student> getAllStudents() throws SQLException {
+        ObservableList<Main.Student> list = FXCollections.observableArrayList();
         String sql = "SELECT * FROM students";
         try (Connection conn = getConnection();
                 Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery(sql)) {
+
             while (rs.next()) {
-                list.add(new Student(
+                list.add(new Main.Student(
                         rs.getInt("id"),
                         rs.getString("name"),
                         rs.getString("phone"),
