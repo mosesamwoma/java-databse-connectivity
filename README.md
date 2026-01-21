@@ -209,34 +209,6 @@ java --module-path "javafx\javafx-sdk-25.0.1\lib" --add-modules javafx.controls,
 
 ---
 
-## 💡 Usage Guide
-
-1. **Ensure XAMPP MySQL is Running**
-   - Open XAMPP Control Panel
-   - Make sure **MySQL** shows green status
-   - If not running, click **Start** next to MySQL
-
-2. **Launch Application**
-   - Navigate to `HostelApp` directory in PowerShell
-   - Run the compile and run commands from the section above
-   - The main application file is located at: `HostelApp\src\app\Main.java`
-
-3. **Add Student**
-   - Fill in the Name, Phone, and Course fields
-   - Click **"Insert"** button
-
-4. **Update Student**
-   - Enter the Student ID in the ID field
-   - Fill in the new Name, Phone, and Course details
-   - Click **"Update"** button
-
-5. **Delete Student**
-   - Enter the Student ID in the ID field
-   - Click **"Delete"** button
-
-6. **View Students**
-   - All students are displayed automatically in the TableView
-   - The table refreshes after Insert, Update, or Delete operations
 
 ---
 
