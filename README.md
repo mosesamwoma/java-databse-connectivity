@@ -309,11 +309,3 @@ java --module-path "javafx\javafx-sdk-25.0.1\lib" --add-modules javafx.controls,
 **Moses Tumbo**
 
 Production-ready JavaFX + MySQL demonstration project
-
-GitHub: [https://github.com/mosesamwoma/java-databse-connectivity.git](https://github.com/mosesamwoma/java-databse-connectivity.git)
-
----
-
-## 📄 License
-
-MIT License
