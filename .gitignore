@@ -8,6 +8,8 @@ out/
 
 # SQLite database (ignore real database)
 hostel.db
+hostel.sql
+
 
 # JavaFX SDK
 javafx/
