@@ -42,7 +42,7 @@ JDBC (Java Database Connectivity) follows a specific sequence of steps to intera
 6. **Process ResultSet (if any)**
 7. **Close ResultSet, Statement, and Connection**
 
-**Note:** This project implements these steps in `DBConnector.java` for connection management and in `Main.java` for CRUD operations.
+**Note:** This project implements these steps in `DBConnector.java` for connection management
 
 ---
 
