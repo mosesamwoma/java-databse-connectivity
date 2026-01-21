@@ -6,6 +6,14 @@ A beginner-friendly JavaFX application for managing hostel students with full CR
 
 ---
 
+## 📸 Application Preview
+
+![Hostel Management System](screenshort/1.png)
+
+*The JavaFX application interface showing the student management dashboard with CRUD operations*
+
+---
+
 ## 📋 Features
 
 - ✅ **Add** new students (Name, Phone, Course)
@@ -30,19 +38,16 @@ A beginner-friendly JavaFX application for managing hostel students with full CR
 
 ## 📚 Understanding JDBC Workflow
 
-JDBC (Java Database Connectivity) follows a specific sequence of steps to interact with databases. Every database operation in this application follows these steps:
+JDBC (Java Database Connectivity) allows Java applications to interact with databases. This project follows these essential steps:
 
-### The 7 Essential JDBC Steps
+1. **Load Driver** → Register MySQL JDBC driver (`com.mysql.cj.jdbc.Driver`)
+2. **Establish Connection** → Connect to database using URL, username, password
+3. **Create Statement** → Prepare SQL statement object
+4. **Execute Query** → Run SQL commands (INSERT, SELECT, UPDATE, DELETE)
+5. **Process Results** → Retrieve data from ResultSet (for SELECT queries)
+6. **Close Resources** → Close ResultSet, Statement, and Connection
 
-1. **Import JDBC packages**
-2. **Load and register database driver**
-3. **Establish database connection**
-4. **Create statement object**
-5. **Execute SQL query or update**
-6. **Process ResultSet (if any)**
-7. **Close ResultSet, Statement, and Connection**
-
-**Note:** This project implements these steps in `DBConnector.java` for connection management
+**Implementation:** All database operations are managed in `DBConnector.java` which handles connections and executes SQL statements.
 
 ---
 
@@ -206,9 +211,6 @@ java --module-path "javafx\javafx-sdk-25.0.1\lib" --add-modules javafx.controls,
 ```
 
 **Note:** This compiles only `Main.java` directly from the `src` folder. This is faster for quick testing but requires all Java files to be in the `src` directory structure.
-
----
-
 
 ---
 
