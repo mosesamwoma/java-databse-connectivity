@@ -152,27 +152,6 @@ java -cp ".;lib/mysql-connector-j-9.6.0.jar;src" connector.DBConnector
 
 **Note:** This runs the `main()` method in `HostelApp\src\connector\DBConnector.java` to verify your database connection works before launching the full JavaFX application.
 
-**Expected Output:**
-```
-Testing MySQL Database Connection...
-=====================================
-
-Database connected successfully!
-Connection established successfully!
-
-Executing query: SELECT * FROM students
--------------------------------------
-
-ID      Name                    Phone           Course
-==============================================================
-1       John Doe                0712345678      Computer Science
-2       Jane Smith              0723456789      Business Administration
-
-=====================================
-Database test completed successfully!
-Connection closed.
-```
-
 ### Troubleshooting Test Connection
 
 **Error: "ClassNotFoundException: com.mysql.cj.jdbc.Driver"**
