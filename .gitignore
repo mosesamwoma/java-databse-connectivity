@@ -20,6 +20,8 @@ javafx/
 *.idea/
 *.ipr
 *.iws
+.vscode/settings.json
+.vscode
 
 # OS / system files
 .DS_Store
